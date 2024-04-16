@@ -1,35 +1,26 @@
-import type { MetaFunction } from "@remix-run/cloudflare";
+import type {LinksFunction, MetaFunction} from "@remix-run/cloudflare";
+
+import styles from "~/styles/home.css?url";
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: styles },
+];
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
+    {title: "Céline y Paola"},
     {
-      name: "description",
-      content: "Welcome to Remix! Using Vite and Cloudflare!",
+      name: "Céline y Paola se casan",
+      content: "Bienvenidos a la boda de Céline y Paola",
     },
+
   ];
 };
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix (with Vite and Cloudflare)</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://developers.cloudflare.com/pages/framework-guides/deploy-a-remix-site/"
-            rel="noreferrer"
-          >
-            Cloudflare Pages Docs - Remix guide
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
+      <div style={{fontFamily: "system-ui, sans-serif", lineHeight: "1.8"}}>
+        <h1>Céline y Paola</h1>
+      </div>
   );
 }
