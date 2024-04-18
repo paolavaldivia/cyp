@@ -1,32 +1,77 @@
+:root {
+    --main-margin-out: 50px;
+    --main-margin-in: 10px;
+    --font-title: "Tangerine";
+}
+
+
 body {
     background-image: url("../images/seamless-watercolor-flowers-pattern-free-photo.jpg");
-    background-size: contain;
+    background-size: cover;
     background-position: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
     width: 100vw;
 }
 
 h1 {
-    font-family: "Tangerine", cursive;
+    font-family: var(--font-title, cursive);
     font-size: 100px;
     text-align: center;
     margin-left: auto;
-    margin-top: 50%;
     margin-right: auto;
-    padding: 20px;
-    color: #3a0e00; /* Initial fiery color */
-    animation: flame 2s ease-in-out infinite;
+    color: #3a0e00;
     text-shadow: 0 -2px 4px #ffffff,
-    0 -2px 10px #ffd633,
-    0 -10px 20px #F90,
-    0 -20px 30px #c46b5f;
+    0 -2px 8px #ffefb6,
+    0 -5px 12px #F90,
+    0 -10px 20px #c46b5f;
     width: 70%;
 }
 
-h1::before {
-    background-image: url("../images/clear-pale-gray-colored-wall.jpg");
-    background-size: contain;
+
+.back {
+    background-image: url("../images/0068-1-1024x1024.jpg");
+    background-size: cover;
     background-position: center;
-    width: 70%;
+    position: absolute;
+    top: var(--main-margin-out, 50px);
+    bottom: var(--main-margin-out, 50px);
+    left: var(--main-margin-out, 50px);
+    right: var(--main-margin-out, 50px);
+    opacity: 0.9;
+    z-index: -1;
+    border-radius: 5px;
 }
 
+.back::after {
+    content: "";
+    background-image: url("../images/0068-1-1024x1024.jpg");
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: var(--main-margin-in, 10px);
+    bottom: var(--main-margin-in, 10px);
+    left: var(--main-margin-in, 10px);
+    right: var(--main-margin-in, 10px);
+    opacity: 1;
+    z-index: -1;
+    border: 4px ridge #e5e0d5;
+    border-radius: 5px;
+}
+
+
+@media (width <= 600px) {
+    h1 {
+        word-spacing: 9999px;
+        white-space: pre-line;
+    }
+}

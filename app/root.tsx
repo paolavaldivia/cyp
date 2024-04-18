@@ -6,7 +6,13 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import type {LinksFunction} from "@remix-run/cloudflare";
 
+import resetStyles from "~/styles/reset.css?url";
+
+export const links: LinksFunction = () => {
+    return [{ rel: "stylesheet", href: resetStyles }];
+};
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
