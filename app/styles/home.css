@@ -1,14 +1,5 @@
-:root {
-    --main-margin-out: 50px;
-    --main-margin-in: 10px;
-    --font-title: "Tangerine";
-}
-
-
 body {
-    background-image: url("../images/seamless-watercolor-flowers-pattern-free-photo.jpg");
-    background-size: cover;
-    background-position: center;
+    background-image: url("../images/0068-1-1024x1024.jpg");
     height: 100vh;
     width: 100vw;
     margin: 0;
@@ -17,61 +8,156 @@ body {
 
 .container {
     display: flex;
+    flex-direction: row;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-main {
+    margin-top: 100px;
+    position: relative;
+    min-height: 100vh;
+    padding: var(--size-3);
+    font-size: var(--font-size-body, 16px);
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
+    gap: var(--size-3);
+    order: 2;
+    width: 60%;
+    background-color: color-mix(in srgb, var(--color-3-10) 30%, transparent 20%);
+}
+.home-main::after {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -150px;
+    width: 300px;
+    height: 100%;
+    background-image: url("../images/edge.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    transform: rotate(180deg);
+}
+.home-main::before {
+    content: "";
+    position: absolute;
+    bottom: -100px;
+    left: -150px;
+    width: 300px;
+    height: 100%;
+    background-image: url("../images/edge.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.home-story {
+    order: 1;
+    width: 20%;
+}
+
+.home-faq {
+    order: 3;
+    width: 20%;
 }
 
 h1 {
     font-family: var(--font-title, cursive);
-    font-size: 100px;
+    font-size: var(--font-size-xl, 70px);
+    line-height: 1.1;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    color: #3a0e00;
-    text-shadow: 0 -2px 4px #ffffff,
-    0 -2px 8px #ffefb6,
-    0 -5px 12px #F90,
-    0 -10px 20px #c46b5f;
+    color: var(--color-primary);
+    text-shadow: 0 -2px 2px var(--color-2-9),
+    0 -2px 4px var(--color-2-7),
+    0 -8px 10px var(--color-3-8);
     width: 70%;
 }
 
 
-.back {
-    background-image: url("../images/0068-1-1024x1024.jpg");
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: var(--main-margin-out, 50px);
-    bottom: var(--main-margin-out, 50px);
-    left: var(--main-margin-out, 50px);
-    right: var(--main-margin-out, 50px);
-    opacity: 0.9;
-    z-index: -1;
-    border-radius: 5px;
-}
-
-.back::after {
-    content: "";
-    background-image: url("../images/0068-1-1024x1024.jpg");
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: var(--main-margin-in, 10px);
-    bottom: var(--main-margin-in, 10px);
-    left: var(--main-margin-in, 10px);
-    right: var(--main-margin-in, 10px);
-    opacity: 1;
-    z-index: -1;
-    border: 4px ridge #e5e0d5;
-    border-radius: 5px;
-}
-
-
-@media (width <= 600px) {
+@media (width <= 768px) {
     h1 {
-        word-spacing: 9999px;
-        white-space: pre-line;
+        font-size: var(--font-size-l, 50px);
+    }
+
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--size-4);
+    }
+
+    .home-main {
+        order: 1;
+        width: 80%;
+        font-size: var(--font-size-xs, 14px);
+    }
+
+    .home-story {
+        order: 2;
+        width: 40%;
+    }
+
+    .home-faq {
+        order: 3;
+        width: 40%;
+    }
+
+}
+
+.main-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    height: auto;
+
+    .photo {
+        z-index: 1;
+        width: 55%;
+        height: auto;
+        border-radius: 50%;
+        mask-image: radial-gradient(circle, black 60%, transparent 90%);
+        border: solid var(--size-05) var(--color-3-3);
+    }
+}
+
+.home-main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-3);
+}
+
+.home-main-description {
+    font-family: var(--font-body, sans-serif);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-secondary);
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-05);
+}
+
+
+.corner-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+
+    img {
+        width: 400px;
+        height: auto;
+        opacity: 0.9;
     }
 }
