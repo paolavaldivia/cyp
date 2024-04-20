@@ -66,10 +66,12 @@ h1 {
     0 -2px 4px var(--color-2-7),
     0 -8px 10px var(--color-3-8);
     width: 70%;
+    overflow-wrap: normal;
+    word-break: unset;
 }
 
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
     h1 {
         font-size: var(--font-size-l, 50px);
     }
@@ -84,12 +86,12 @@ h1 {
         order: 1;
         width: 80%;
         font-size: var(--font-size-xs, 14px);
+
         ::before {
             bottom: -70px;
             left: -80px;
             width: 200px;
         }
-
     }
 
     .home-story {
@@ -101,7 +103,6 @@ h1 {
         order: 3;
         width: 40%;
     }
-
 }
 
 .main-photo {
@@ -120,6 +121,7 @@ h1 {
         border: solid var(--size-05) var(--color-3-3);
     }
 }
+
 
 .home-main-content {
     display: flex;
@@ -143,6 +145,31 @@ h1 {
     gap: var(--size-05);
 }
 
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: var(--font-size-ml, 40px);
+    }
+
+    .home-main {
+        width: 100%;
+        font-size: var(--font-size-xs, 12px);
+
+        ::before {
+            bottom: -50px;
+            left: -60px;
+            width: 150px;
+        }
+    }
+}
+
+@media (max-width: 240px ) {
+    .main-photo {
+        .photo {
+            width: 80%;
+        }
+    }
+}
 
 .corner-image {
     position: absolute;

@@ -21,12 +21,15 @@
 
     --font-size-xl: var(--size-9);
     --font-size-l: var(--size-7);
+    --font-size-ml: var(--size-5);
     --font-size-m: var(--size-3);
     --font-size-s: var(--size-25);
     --font-size-xs: var(--size-2);
+    --font-size-xxs: var(--size-1);
 
     --font-size-title: var(--font-size-l);
     --font-size-button: var(--font-size-m);
+    --font-size-button-s: var(--font-size-s);
     --font-size-body: var(--font-size-s);
     --font-size-menu: var(--font-size-s);
 
@@ -93,20 +96,6 @@
     --on-tertiary: var(--color-3-9);
 }
 
-@media (width <= 768px) {
-    --font-size-body: var(--font-size-xs);
-}
-
-/*@media (prefers-color-scheme: dark) {*/
-/*    :root {*/
-/*        --bg: var(--color-2-2);*/
-/*        --surface: var(--color-2-2);*/
-/*        --on-bg: var(--color-3-9);*/
-/*        --on-surface: var(--color-3-9);*/
-/*    }*/
-/*}*/
-
-
 body {
     margin: 0;
     padding: 0;
@@ -128,6 +117,19 @@ button, .button {
     transition: background-color 0.3s;
     text-decoration: none;
 }
+
+
+@media (max-width: 768px) {
+    --font-size-body: var(--font-size-xs);
+}
+
+@media (max-width: 480px) {
+    --font-size-body: var(--font-size-xxs);
+    button, .button {
+        font-size: var(--font-size-button-s, 12px);
+    }
+}
+
 
 button:hover, .button:hover {
     background-color: var(--color-secondary-variant-1);
