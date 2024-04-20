@@ -30,24 +30,11 @@ body {
     width: 60%;
     background-color: color-mix(in srgb, var(--color-3-10) 60%, transparent 40%);
 
-    ::after {
-        content: "";
-        position: absolute;
-        top: -140px;
-        right: -150px;
-        width: 300px;
-        height: 100%;
-        background-image: url("../images/edge-top.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: top;
-    }
-
     ::before {
         content: "";
         position: absolute;
-        bottom: -140px;
-        left: -150px;
+        bottom: -120px;
+        left: -120px;
         width: 300px;
         height: 100%;
         background-image: url("../images/edge-bottom.png");
@@ -97,14 +84,9 @@ h1 {
         order: 1;
         width: 80%;
         font-size: var(--font-size-xs, 14px);
-        ::after {
-            top: -70px;
-            right: -100px;
-            width: 200px;
-        }
         ::before {
             bottom: -70px;
-            left: -100px;
+            left: -80px;
             width: 200px;
         }
 

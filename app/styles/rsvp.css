@@ -28,14 +28,15 @@
     ::after {
         content: "";
         position: absolute;
-        bottom: -100px;
-        right: -100px;
+        bottom: -80px;
+        right: -80px;
         width: 200px;
         height: 100%;
-        background-image: url("../images/edge-bottom-right.png");
+        background-image: url("../images/edge-bottom.png");
         background-size: contain;
         background-repeat: no-repeat;
         background-position: bottom;
+        transform:scaleX(-1);
     }
 }
 
