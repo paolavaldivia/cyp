@@ -1,5 +1,5 @@
 import {json, LinksFunction, LoaderFunctionArgs} from "@remix-run/cloudflare";
-import {getGuest} from "~/data/data";
+import {getGuest} from "~/repository/prismaRepository";
 import {useLoaderData} from "@remix-run/react";
 import {invariant} from "@remix-run/router/history";
 
@@ -8,9 +8,9 @@ export const links: LinksFunction = () => [
     {rel: "stylesheet", href: styles},
 ];
 
-export const loader = async ({params}: LoaderFunctionArgs) => {
+export const loader = async ({params, context}: LoaderFunctionArgs) => {
     invariant(params.id, "Missing guest id param");
-    const guest = await getGuest(params.id);
+    const guest = await getGuest(params.id, context);
     if (!guest) {
         throw new Response("Not Found", {status: 404});
     }

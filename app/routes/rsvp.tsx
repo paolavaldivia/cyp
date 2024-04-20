@@ -1,7 +1,7 @@
 import styles from "~/styles/rsvp.css?url";
 import {ActionFunctionArgs, LinksFunction} from "@remix-run/cloudflare";
 import {redirect} from "@remix-run/router";
-import {rsvp} from "~/data/data";
+import {rsvp} from "~/repository/prismaRepository";
 import {clsx} from "clsx";
 import {Form, useNavigation} from "@remix-run/react";
 
@@ -52,9 +52,9 @@ export default function RSVP() {
     );
 }
 
-export const action = async ({request}: ActionFunctionArgs) => {
+export const action = async ({request, context}: ActionFunctionArgs) => {
     const formData = await request.formData();
     const updates = Object.fromEntries(formData);
-    const response = await rsvp(updates);
+    const response = await rsvp(updates, context);
     return redirect(`/rsvp-confirm/${response.id}`);
 };

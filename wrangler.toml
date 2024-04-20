@@ -19,6 +19,11 @@ compatibility_date = "2024-04-05"
 # binding = "MY_DB"
 # database_name = "my-database"
 # database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+[[d1_databases]]
+binding = "DB" # Should match preview_database_id
+database_name = "bodorrio"
+database_id = "b869262d-7c65-4e62-9d93-45694b0dbe74" # wrangler d1 info YOUR_DATABASE_NAME
+preview_database_id = "DB" # Required for Pages local development
 
 # Bind a Durable Object. Durable objects are a scale-to-zero compute primitive based on the actor model.
 # Durable Objects can live for as long as needed. Use these when you need a long-running "server", such as in realtime apps.
