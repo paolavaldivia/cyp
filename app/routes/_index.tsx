@@ -58,7 +58,6 @@ export default function Index() {
                     </div>
                     <img src={divider} alt="" height={20}/>
                     <Link className="button" to="/rsvp">RSVP</Link>
-                    {/*<button >RSVP</button>*/}
                     <p> antes del 2 de junio</p>
                 </div>
             </div>

@@ -36,7 +36,7 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: bottom;
-        transform:scaleX(-1);
+        transform: scaleX(-1);
     }
 }
 
@@ -49,6 +49,26 @@
 
     label {
         font-family: var(--font-menu, sans-serif);
+    }
+
+    input:has(+.rsvp-input-error-message.show) {
+        outline: 0 none;
+        border: solid 1.5px var(--color-secondary-variant-1);
+    }
+    select:has(+.rsvp-input-error-message.show) {
+        outline: 0 none;
+        border: solid 1.5px var(--color-secondary-variant-1);
+    }
+
+    .rsvp-input-error-message {
+        color: var(--color-secondary-variant-1);
+        font-size: var(--size-15);
+        font-family: var(--font-body, sans-serif);
+        opacity: 0;
+        &.show {
+            opacity: 1;
+        }
+
     }
 
     .rsvp-input {
