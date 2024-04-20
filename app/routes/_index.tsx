@@ -1,9 +1,23 @@
-import type {LinksFunction, MetaFunction} from "@remix-run/cloudflare";
+import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/cloudflare";
 
 import styles from "~/styles/home.css?url";
 import divider from "~/images/divider.svg";
 import {MainPhoto} from "~/components/mainPhoto";
-import {CardRound} from "~/components/cardRound";
+
+const n = 8;
+const imagePaths = Array.from({ length: n }, (_, i) => `/images/photos/cyp_${i}.jpg`);
+
+
+export type IndexData = {
+    selectedImage: string;
+};
+
+export const loader: LoaderFunction = (): IndexData => {
+    const randomIndex = Math.floor(Math.random() * imagePaths.length);
+    const selectedImage = imagePaths[randomIndex];
+    return { selectedImage };
+};
+
 
 export const links: LinksFunction = () => [
     {rel: "stylesheet", href: styles},
@@ -34,7 +48,7 @@ export default function Index() {
                             ustedes.
                         </p>
                         <p>
-                            La ceremonia se llevará a cabo el 24 de Agosto en Arequipa (dirección exacta a ser
+                            La ceremonia se llevará a cabo el <b> 24 de Agosto</b> en Arequipa (dirección exacta a ser
                             confirmada).
                         </p>
                         <p>
