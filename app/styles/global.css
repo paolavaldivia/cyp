@@ -115,7 +115,7 @@ body {
 }
 
 
-button {
+button, .button {
     font-family: var(--font-menu, sans-serif);
     font-size: var(--font-size-button, 16px);
     background-color: var(--color-primary);
@@ -125,6 +125,11 @@ button {
     padding: var(--size-1) var(--size-3);
     cursor: pointer;
     transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+button:hover, .button:hover {
+    background-color: var(--color-secondary-variant-1);
 }
 
 .logo {

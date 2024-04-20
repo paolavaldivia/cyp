@@ -1,0 +1,71 @@
+.rsvp-container {
+    min-height: 100dvh;
+    overflow: hidden;
+    background-image: url("../images/0068-1-1024x1024.jpg");
+    background-size: cover;
+}
+
+.rsvp-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+    height: 100%;
+    margin: var(--size-4) auto;
+    padding: var(--size-10) var(--size-4);
+    gap: var(--size-2);
+    background-color: color-mix(in srgb, var(--color-3-10) 60%, transparent 40%);
+
+    h1 {
+        font-weight: normal;
+        text-shadow: 0 -2px 2px var(--color-2-9),
+        0 -2px 4px var(--color-2-7),
+        0 -8px 10px var(--color-3-8);
+    }
+
+    ::after {
+        content: "";
+        position: absolute;
+        bottom: -100px;
+        right: -100px;
+        width: 200px;
+        height: 100%;
+        background-image: url("../images/edge-bottom-right.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
+}
+
+
+.rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-3);
+    width: 100%;
+
+    label {
+        font-family: var(--font-menu, sans-serif);
+    }
+
+    .rsvp-input {
+        width: 100%;
+        height: var(--size-6);
+        font-family: var(--font-body, sans-serif);
+    }
+
+    .rsvp-button {
+        margin-top: var(--size-4);
+    }
+
+    &.submitting {
+        .rsvp-button:disabled {
+            cursor: not-allowed;
+            background-color: var(--color-tertiary);
+        }
+
+    }
+}
+

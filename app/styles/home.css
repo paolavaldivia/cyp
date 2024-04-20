@@ -1,5 +1,6 @@
 body {
     background-image: url("../images/0068-1-1024x1024.jpg");
+    background-size: cover;
     margin: 0;
     padding: 0;
 }
@@ -27,7 +28,7 @@ body {
     gap: var(--size-3);
     order: 2;
     width: 60%;
-    background-color: color-mix(in srgb, var(--color-3-10) 30%, transparent 20%);
+    background-color: color-mix(in srgb, var(--color-3-10) 60%, transparent 40%);
 
     ::after {
         content: "";

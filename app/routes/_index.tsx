@@ -3,6 +3,7 @@ import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/cloud
 import styles from "~/styles/home.css?url";
 import divider from "~/images/divider.svg";
 import {MainPhoto} from "~/components/mainPhoto";
+import {Link} from "@remix-run/react";
 
 const n = 8;
 const imagePaths = Array.from({ length: n }, (_, i) => `/images/photos/cyp_${i}.jpg`);
@@ -56,7 +57,8 @@ export default function Index() {
                         </p>
                     </div>
                     <img src={divider} alt="" height={20}/>
-                    <button>RSVP</button>
+                    <Link className="button" to="/rsvp">RSVP</Link>
+                    {/*<button >RSVP</button>*/}
                     <p> antes del 2 de junio</p>
                 </div>
             </div>
