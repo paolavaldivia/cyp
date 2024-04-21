@@ -4,7 +4,7 @@ import {
   LinksFunction,
   LoaderFunctionArgs,
 } from "@remix-run/cloudflare";
-import { getGuest, rsvp } from "~/repository/prismaRepository";
+import { getGuest, rsvp, rsvpUpdate } from "~/repository/prismaRepository";
 import { useActionData, useLoaderData, useNavigation } from "@remix-run/react";
 import { invariant } from "@remix-run/router/history";
 
@@ -43,13 +43,19 @@ export default function RsvpEdit() {
   );
 }
 
-export const action = async ({ request, context }: ActionFunctionArgs) => {
+export const action = async ({
+  request,
+  context,
+  params,
+}: ActionFunctionArgs) => {
+  invariant(params.id, "Missing guest id param");
   const formPayload = Object.fromEntries(await request.formData());
+  const id = params.id;
   console.log({ formPayload });
   try {
     const parsed = formSchema.parse(formPayload);
     console.log({ parsed });
-    const response = await rsvp(parsed, context);
+    const response = await rsvpUpdate(id, parsed, context);
     return redirect(`/rsvp-confirm/${response.id}`);
   } catch (error) {
     console.error(`form not submitted ${error}`);
