@@ -12,7 +12,11 @@
     "typecheck": "tsc",
     "typegen": "wrangler types",
     "preview": "npm run build && wrangler pages dev ./build/client",
-    "build-cf-types": "wrangler types"
+    "build-cf-types": "wrangler types",
+    "pretty": "prettier --write .",
+    "prisma-generate": "prisma generate",
+    "apply-prod": "wrangler d1 migrations apply bodorrio --remote",
+    "apply-local": "wrangler d1 migrations apply bodorrio --local"
   },
   "dependencies": {
     "@prisma/adapter-d1": "^5.12.1",
@@ -40,6 +44,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "node-fetch": "^3.3.2",
+    "prettier": "3.2.5",
     "prisma": "^5.12.1",
     "typescript": "^5.1.6",
     "vite": "^5.1.0",

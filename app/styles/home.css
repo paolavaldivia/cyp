@@ -1,185 +1,181 @@
 body {
-    background-image: url("../images/0068-1-1024x1024.jpg");
-    background-size: cover;
-    margin: 0;
-    padding: 0;
+  background-image: url("../images/0068-1-1024x1024.jpg");
+  background-size: cover;
 }
 
 .container {
-    display: flex;
-    flex-direction: row;
-    min-height: 100dvh;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  min-height: 100dvh;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .home-main {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    position: relative;
-    min-height: 100vh;
-    padding: var(--size-3);
-    font-size: var(--font-size-body, 16px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--size-3);
-    order: 2;
-    width: 60%;
-    background-color: color-mix(in srgb, var(--color-3-10) 60%, transparent 40%);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  position: relative;
+  min-height: 100vh;
+  padding: var(--size-3);
+  font-size: var(--font-size-body, 16px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--size-3);
+  order: 2;
+  width: 60%;
+  background-color: color-mix(in srgb, var(--color-3-10) 60%, transparent 40%);
 
-    ::before {
-        content: "";
-        position: absolute;
-        bottom: -120px;
-        left: -120px;
-        width: 300px;
-        height: 100%;
-        background-image: url("../images/edge-bottom.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom;
-    }
+  ::before {
+    content: "";
+    position: absolute;
+    bottom: -120px;
+    left: -120px;
+    width: 300px;
+    height: 100%;
+    background-image: url("../images/edge-bottom.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
 }
 
 .home-story {
-    order: 1;
-    width: 20%;
+  order: 1;
+  width: 20%;
 }
 
 .home-faq {
-    order: 3;
-    width: 20%;
+  order: 3;
+  width: 20%;
 }
 
 h1 {
-    font-family: var(--font-title, cursive);
-    font-size: var(--font-size-xl, 70px);
-    line-height: 1.1;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--color-primary);
-    text-shadow: 0 -2px 2px var(--color-2-9),
+  font-family: var(--font-title, cursive);
+  font-size: var(--font-size-xl, 70px);
+  line-height: 1.1;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--color-primary);
+  text-shadow:
+    0 -2px 2px var(--color-2-9),
     0 -2px 4px var(--color-2-7),
     0 -8px 10px var(--color-3-8);
-    width: 70%;
-    overflow-wrap: normal;
-    word-break: unset;
+  width: 70%;
+  overflow-wrap: normal;
+  word-break: unset;
 }
 
-
 @media (max-width: 768px) {
-    h1 {
-        font-size: var(--font-size-l, 50px);
-    }
+  h1 {
+    font-size: var(--font-size-l, 50px);
+  }
 
-    .container {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: var(--size-4);
-    }
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--size-4);
+  }
 
-    .home-main {
-        order: 1;
-        width: 80%;
-        font-size: var(--font-size-xs, 14px);
+  .home-main {
+    order: 1;
+    width: 80%;
+    font-size: var(--font-size-xs, 14px);
 
-        ::before {
-            bottom: -70px;
-            left: -80px;
-            width: 200px;
-        }
+    ::before {
+      bottom: -70px;
+      left: -80px;
+      width: 200px;
     }
+  }
 
-    .home-story {
-        order: 2;
-        width: 40%;
-    }
+  .home-story {
+    order: 2;
+    width: 40%;
+  }
 
-    .home-faq {
-        order: 3;
-        width: 40%;
-    }
+  .home-faq {
+    order: 3;
+    width: 40%;
+  }
 }
 
 .main-photo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 500px;
-    height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  height: auto;
 
-    .photo {
-        z-index: 1;
-        width: 55%;
-        height: auto;
-        border-radius: 50%;
-        mask-image: radial-gradient(circle, black 60%, transparent 90%);
-        border: solid var(--size-05) var(--color-3-3);
-    }
+  .photo {
+    z-index: 1;
+    width: 55%;
+    height: auto;
+    border-radius: 50%;
+    mask-image: radial-gradient(circle, black 60%, transparent 90%);
+    border: solid var(--size-05) var(--color-3-3);
+  }
 }
 
-
 .home-main-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--size-3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--size-3);
 }
 
 .home-main-description {
-    font-family: var(--font-body, sans-serif);
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--color-secondary);
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--size-05);
+  font-family: var(--font-body, sans-serif);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--color-secondary);
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--size-05);
 }
-
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: var(--font-size-ml, 40px);
-    }
+  h1 {
+    font-size: var(--font-size-ml, 40px);
+  }
 
-    .home-main {
-        width: 100%;
-        font-size: var(--font-size-xs, 12px);
+  .home-main {
+    width: 100%;
+    font-size: var(--font-size-xs, 12px);
 
-        ::before {
-            bottom: -50px;
-            left: -60px;
-            width: 150px;
-        }
+    ::before {
+      bottom: -50px;
+      left: -60px;
+      width: 150px;
     }
+  }
 }
 
-@media (max-width: 240px ) {
-    .main-photo {
-        .photo {
-            width: 80%;
-        }
+@media (max-width: 240px) {
+  .main-photo {
+    .photo {
+      width: 80%;
     }
+  }
 }
 
 .corner-image {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
 
-    img {
-        width: 400px;
-        height: auto;
-        opacity: 0.9;
-    }
+  img {
+    width: 400px;
+    height: auto;
+    opacity: 0.9;
+  }
 }
