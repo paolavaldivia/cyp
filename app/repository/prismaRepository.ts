@@ -1,5 +1,5 @@
 import { AppLoadContext } from "@remix-run/cloudflare";
-import { GuestFromFormData } from "~/domain/guest";
+import { GuestFromFormData, GuestFromPrismaData } from "~/domain/guest";
 import { getPrismaClient } from "../../db/client";
 import { FormPayload } from "~/routes/formSchema";
 
@@ -13,11 +13,32 @@ export const rsvp = async (updates: FormPayload, context: AppLoadContext) => {
   };
 };
 
+export const rsvpUpdate = async (
+  id: string,
+  updates: FormPayload,
+  context: AppLoadContext,
+) => {
+  const prisma = getPrismaClient(context);
+  const record = await prisma.guest.update({
+    where: {
+      id,
+    },
+    data: GuestFromFormData(updates),
+  });
+  return {
+    id: record.id,
+  };
+};
+
 export const getGuest = async (id: string, context: AppLoadContext) => {
   const prisma = getPrismaClient(context);
-  return prisma.guest.findUnique({
+  const record = await prisma.guest.findUnique({
     where: {
       id,
     },
   });
+  if (!record) {
+    return null;
+  }
+  return GuestFromPrismaData(record);
 };

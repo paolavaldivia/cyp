@@ -1,6 +1,6 @@
 import { json, LinksFunction, LoaderFunctionArgs } from "@remix-run/cloudflare";
 import { getGuest } from "~/repository/prismaRepository";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData, useParams } from "@remix-run/react";
 import { invariant } from "@remix-run/router/history";
 
 import styles from "~/styles/rsvp.css?url";
@@ -16,8 +16,9 @@ export const loader = async ({ params, context }: LoaderFunctionArgs) => {
   return json({ guest });
 };
 
-export default function RSVPGuest() {
+export default function RsvpConfirm() {
   const { guest } = useLoaderData<typeof loader>();
+  const { id } = useParams();
 
   return (
     <div className="rsvp-container">
@@ -31,6 +32,9 @@ export default function RSVPGuest() {
             para que podamos hacer los ajustes necesarios.
           </p>
         )}
+        <Link className="button small" to={`/rsvp-edit/${id}`}>
+          Editar RSVP
+        </Link>
       </div>
     </div>
   );

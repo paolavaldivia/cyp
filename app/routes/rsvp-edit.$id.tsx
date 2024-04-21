@@ -1,16 +1,33 @@
+import {
+  ActionFunctionArgs,
+  json,
+  LinksFunction,
+  LoaderFunctionArgs,
+} from "@remix-run/cloudflare";
+import { getGuest, rsvp } from "~/repository/prismaRepository";
+import { useActionData, useLoaderData, useNavigation } from "@remix-run/react";
+import { invariant } from "@remix-run/router/history";
+
 import styles from "~/styles/rsvp.css?url";
-import { ActionFunctionArgs, json, LinksFunction } from "@remix-run/cloudflare";
-import { redirect } from "@remix-run/router";
-import { rsvp } from "~/repository/prismaRepository";
-import { useActionData, useNavigation } from "@remix-run/react";
-import { ZodError } from "zod";
+import { RsvpForm } from "~/components/rsvpForm";
 import { toInputErrors } from "~/routes/toInputErrors";
 import { formSchema } from "~/routes/formSchema";
-import { RsvpForm } from "~/components/rsvpForm";
+import { redirect } from "@remix-run/router";
+import { ZodError } from "zod";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
-export default function RSVP() {
+export const loader = async ({ params, context }: LoaderFunctionArgs) => {
+  invariant(params.id, "Missing guest id param");
+  const guest = await getGuest(params.id, context);
+  if (!guest) {
+    throw new Response("Not Found", { status: 404 });
+  }
+  return json({ guest });
+};
+
+export default function RsvpEdit() {
+  const { guest } = useLoaderData<typeof loader>();
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const actionData = useActionData<typeof action>();
@@ -19,8 +36,8 @@ export default function RSVP() {
   return (
     <div className="rsvp-container">
       <div className="rsvp-content">
-        <h1>RSVP</h1>
-        <RsvpForm isSubmitting={isSubmitting} errors={errors} />
+        <h1>Actualiza tu RSVP</h1>
+        <RsvpForm isSubmitting={isSubmitting} errors={errors} guest={guest} />
       </div>
     </div>
   );
