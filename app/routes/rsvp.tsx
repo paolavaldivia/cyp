@@ -4,8 +4,8 @@ import { redirect } from "@remix-run/router";
 import { rsvp } from "~/repository/prismaRepository";
 import { useActionData, useNavigation } from "@remix-run/react";
 import { ZodError } from "zod";
-import { toInputErrors } from "~/routes/toInputErrors";
-import { formSchema } from "~/routes/formSchema";
+import { toInputErrors } from "~/models/toInputErrors";
+import { formSchema } from "~/models/formSchema";
 import { RsvpForm } from "~/components/rsvpForm";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];

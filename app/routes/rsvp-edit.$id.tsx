@@ -10,8 +10,8 @@ import { invariant } from "@remix-run/router/history";
 
 import styles from "~/styles/rsvp.css?url";
 import { RsvpForm } from "~/components/rsvpForm";
-import { toInputErrors } from "~/routes/toInputErrors";
-import { formSchema } from "~/routes/formSchema";
+import { toInputErrors } from "~/models/toInputErrors";
+import { formSchema } from "~/models/formSchema";
 import { redirect } from "@remix-run/router";
 import { ZodError } from "zod";
 

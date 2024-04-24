@@ -1,7 +1,7 @@
 import { AppLoadContext } from "@remix-run/cloudflare";
 import { GuestFromFormData, GuestFromPrismaData } from "~/domain/guest";
 import { getPrismaClient } from "../../db/client";
-import { FormPayload } from "~/routes/formSchema";
+import { FormPayload } from "~/models/formSchema";
 
 export const rsvp = async (updates: FormPayload, context: AppLoadContext) => {
   const prisma = getPrismaClient(context);

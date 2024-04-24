@@ -3,11 +3,13 @@ import type {
   LoaderFunction,
   MetaFunction,
 } from "@remix-run/cloudflare";
+import { ClientOnly } from "remix-utils/client-only";
 
 import styles from "~/styles/home.css?url";
 import divider from "~/images/divider.svg";
 import { MainPhoto } from "~/components/mainPhoto";
 import { Link } from "@remix-run/react";
+import { TitleClient } from "~/components/title.client";
 
 const n = 8;
 const imagePaths = Array.from(
@@ -42,7 +44,9 @@ export default function Index() {
     <div className="container">
       <div className="home-main">
         <MainPhoto />
-        <h1>Céline y Paola</h1>
+        <ClientOnly fallback={<h1>Céline y Paola</h1>}>
+          {() => <TitleClient />}
+        </ClientOnly>
         <img src={divider} alt="" height={20} />
         <div className="home-main-content">
           <div className="home-main-description">

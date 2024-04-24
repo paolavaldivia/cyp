@@ -1,4 +1,4 @@
-import { FormPayload } from "~/routes/formSchema";
+import { FormPayload } from "~/models/formSchema";
 import { Guest as PrismaGuest } from "@prisma/client";
 
 export interface Guest {
