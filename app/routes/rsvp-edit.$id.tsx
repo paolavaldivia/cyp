@@ -4,7 +4,6 @@ import {
   LinksFunction,
   LoaderFunctionArgs,
 } from "@remix-run/cloudflare";
-import { getGuest, rsvp, rsvpUpdate } from "~/repository/prismaRepository";
 import { useActionData, useLoaderData, useNavigation } from "@remix-run/react";
 import { invariant } from "@remix-run/router/history";
 
@@ -14,12 +13,13 @@ import { toInputErrors } from "~/models/toInputErrors";
 import { formSchema } from "~/models/formSchema";
 import { redirect } from "@remix-run/router";
 import { ZodError } from "zod";
+import { repository } from "~/repository/repository";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export const loader = async ({ params, context }: LoaderFunctionArgs) => {
   invariant(params.id, "Missing guest id param");
-  const guest = await getGuest(params.id, context);
+  const guest = await repository.getGuest(params.id, context);
   if (!guest) {
     throw new Response("Not Found", { status: 404 });
   }
@@ -55,7 +55,7 @@ export const action = async ({
   try {
     const parsed = formSchema.parse(formPayload);
     console.log({ parsed });
-    const response = await rsvpUpdate(id, parsed, context);
+    const response = await repository.rsvpUpdate(id, parsed, context);
     return redirect(`/rsvp-confirm/${response.id}`);
   } catch (error) {
     console.error(`form not submitted ${error}`);

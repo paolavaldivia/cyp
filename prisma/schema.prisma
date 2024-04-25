@@ -1,7 +1,7 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 // npx wrangler d1 migrations create bodorrio migration_name
-// npx prisma migrate diff --from-local-d1 --to-schema-datamodel ./prisma/schema.prisma  --script  --outpuR migrations/migration_name.sql
+// npx prisma migrate diff --from-local-d1 --to-schema-datamodel ./prisma/schema.prisma  --script  --outpu migrations/migration_name.sql
 
 generator client {
   provider        = "prisma-client-js"
@@ -20,13 +20,15 @@ model Guest {
   email           String?
   phone           String
   attend          Boolean
+  dish            String?
   plusOne         Boolean  @default(false)
   plusOneName     String?
   plusOneLastName String?
+  plusOneDish     String?
   kids            Int      @default(0)
   comments        String?
   tableAssignment String?
   address         String?
   createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  updatedAt       DateTime @default(now()) @updatedAt
 }

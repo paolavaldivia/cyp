@@ -1,12 +1,14 @@
 import styles from "~/styles/rsvp.css?url";
 import { ActionFunctionArgs, json, LinksFunction } from "@remix-run/cloudflare";
 import { redirect } from "@remix-run/router";
-import { rsvp } from "~/repository/prismaRepository";
 import { useActionData, useNavigation } from "@remix-run/react";
 import { ZodError } from "zod";
 import { toInputErrors } from "~/models/toInputErrors";
 import { formSchema } from "~/models/formSchema";
 import { RsvpForm } from "~/components/rsvpForm";
+import { PrismaRepository } from "~/repository/prismaRepository";
+import { context } from "esbuild";
+import { repository } from "~/repository/repository";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
@@ -32,7 +34,7 @@ export const action = async ({ request, context }: ActionFunctionArgs) => {
   try {
     const parsed = formSchema.parse(formPayload);
     console.log({ parsed });
-    const response = await rsvp(parsed, context);
+    const response = await repository.rsvp(parsed, context);
     return redirect(`/rsvp-confirm/${response.id}`);
   } catch (error) {
     console.error(`form not submitted ${error}`);

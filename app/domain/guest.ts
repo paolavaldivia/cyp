@@ -7,9 +7,11 @@ export interface Guest {
   email?: string;
   phone: string;
   attend: boolean;
+  dish?: string;
   plusOne: boolean;
   plusOneName?: string;
   plusOneLastName?: string;
+  plusOneDish?: string;
   kids: number;
   comments?: string;
 }
@@ -21,9 +23,11 @@ export const GuestFromFormData = (data: FormPayload): Guest => {
     email: data.email,
     phone: data.phone,
     attend: data.attend === "yes",
+    dish: data.dish,
     plusOne: !!data.plusOne,
     plusOneName: data.plusOneName,
     plusOneLastName: data.plusOneLastName,
+    plusOneDish: data.plusOneDish,
     kids: data.kids || 0,
     comments: data.comments,
   };
@@ -36,9 +40,11 @@ export const GuestFromPrismaData = (data: PrismaGuest): Guest => {
     email: data.email || undefined,
     phone: data.phone,
     attend: data.attend,
+    dish: data.dish || undefined,
     plusOne: data.plusOne,
     plusOneName: data.plusOneName || undefined,
     plusOneLastName: data.plusOneLastName || undefined,
+    plusOneDish: data.plusOneDish || undefined,
     kids: data.kids,
     comments: data.comments || undefined,
   };
