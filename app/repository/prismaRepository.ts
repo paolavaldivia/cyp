@@ -1,8 +1,10 @@
 import { AppLoadContext } from "@remix-run/cloudflare";
-import { Guest, GuestFromFormData, GuestFromPrismaData } from "~/domain/guest";
-import { getPrismaClient } from "../../db/client";
+import { Guest } from "~/domain/guest";
+import { getPrismaClient } from "../../src/db/client";
 import { FormPayload } from "~/models/formSchema";
 import { IGuestRepository } from "~/repository/IGuestRepository";
+import { GuestFromPrisma } from "~/repository/mappers/guestFromPrisma";
+import { PrismaGuestFromFormPayload } from "~/repository/mappers/prismaGuestFromFormPayload";
 
 export class PrismaRepository implements IGuestRepository {
   constructor() {}
@@ -13,7 +15,7 @@ export class PrismaRepository implements IGuestRepository {
   ): Promise<{ id: string }> {
     const prisma = getPrismaClient(context);
     const record = await prisma.guest.create({
-      data: GuestFromFormData(updates),
+      data: PrismaGuestFromFormPayload(updates),
     });
     return {
       id: record.id,
@@ -30,7 +32,7 @@ export class PrismaRepository implements IGuestRepository {
       where: {
         id,
       },
-      data: GuestFromFormData(updates),
+      data: PrismaGuestFromFormPayload(updates),
     });
     return {
       id: record.id,
@@ -47,6 +49,6 @@ export class PrismaRepository implements IGuestRepository {
     if (!record) {
       return null;
     }
-    return GuestFromPrismaData(record);
+    return GuestFromPrisma(record);
   }
 }

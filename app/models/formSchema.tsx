@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const dishOptions = ["chicharron", "lomo"] as const;
+export const dishOptions = ["pescado", "lomo"] as const;
 export type Dish = (typeof dishOptions)[number];
 
 export const formSchema = z

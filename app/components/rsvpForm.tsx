@@ -11,12 +11,12 @@ interface RSVPFormProps {
 }
 
 const dishOptionsSelect: { value: Dish; label: string }[] = [
-  { value: "chicharron", label: "Chicharrón de chancho" },
+  { value: "pescado", label: "Salmón" },
   { value: "lomo", label: "Lomo saltado" },
 ];
 
 export const RsvpForm = ({ isSubmitting, errors, guest }: RSVPFormProps) => {
-  const [plusOneChecked, setPlusOneChecked] = useState(false);
+  const [plusOneChecked, setPlusOneChecked] = useState(guest?.plusOne || false);
   const [attend, setAttend] = useState(guest?.attend || false);
 
   return (

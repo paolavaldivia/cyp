@@ -3,6 +3,8 @@ name = "cyp"
 compatibility_date = "2024-04-05"
 pages_build_output_dir = "./build/client"
 
+# Whenever you change your wrangler.toml file, you'll need to run wrangler types to regenerate your bindings.
+
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
 # Note: Use secrets to store sensitive data.
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#environment-variables
