@@ -1,5 +1,5 @@
-import { FormPayload } from "~/models/formSchema";
-import { Guest } from "~/domain/guest";
+import { FormPayload } from "../models/formSchema";
+import { Guest } from "../domain/guest";
 import { AppLoadContext } from "@remix-run/cloudflare";
 
 export interface IGuestRepository {

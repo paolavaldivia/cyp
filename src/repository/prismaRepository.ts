@@ -1,10 +1,10 @@
 import { AppLoadContext } from "@remix-run/cloudflare";
-import { Guest } from "~/domain/guest";
-import { getPrismaClient } from "../../src/db/client";
-import { FormPayload } from "~/models/formSchema";
-import { IGuestRepository } from "~/repository/IGuestRepository";
-import { GuestFromPrisma } from "~/repository/mappers/guestFromPrisma";
-import { PrismaGuestFromFormPayload } from "~/repository/mappers/prismaGuestFromFormPayload";
+import { Guest } from "../domain/guest";
+import { getPrismaClient } from "../db/client";
+import { FormPayload } from "../models/formSchema";
+import { IGuestRepository } from "./IGuestRepository";
+import { GuestFromPrisma } from "../models/mappers/guestFromPrisma";
+import { PrismaGuestFromFormPayload } from "../models/mappers/prismaGuestFromFormPayload";
 
 export class PrismaRepository implements IGuestRepository {
   constructor() {}

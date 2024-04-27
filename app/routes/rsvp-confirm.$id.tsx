@@ -3,7 +3,7 @@ import { Link, useLoaderData, useParams } from "@remix-run/react";
 import { invariant } from "@remix-run/router/history";
 
 import styles from "~/styles/rsvp.css?url";
-import { repository } from "~/repository/repository";
+import { repository } from "../../src/repository/repository";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 

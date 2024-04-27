@@ -1,4 +1,4 @@
-import { FormPayload } from "~/models/formSchema";
+import { FormPayload } from "../formSchema";
 import { Prisma, PrismaClient } from "@prisma/client";
 
 type GuestCreateBody = Prisma.Args<PrismaClient["guest"], "create">["data"];

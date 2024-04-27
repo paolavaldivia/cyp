@@ -1,4 +1,4 @@
-import { Guest } from "~/domain/guest";
+import { Guest } from "../../domain/guest";
 import { Guest as PrismaGuest } from "@prisma/client";
 
 export const GuestFromPrisma = (data: PrismaGuest): Guest => {

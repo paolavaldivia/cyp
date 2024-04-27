@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Form } from "@remix-run/react";
 import { clsx } from "clsx";
-import { Guest } from "~/domain/guest";
-import { Dish } from "~/models/formSchema";
+import { Guest } from "../../src/domain/guest";
+import { Dish } from "../../src/models/formSchema";
 
 interface RSVPFormProps {
   isSubmitting: boolean;

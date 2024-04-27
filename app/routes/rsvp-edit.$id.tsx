@@ -9,11 +9,11 @@ import { invariant } from "@remix-run/router/history";
 
 import styles from "~/styles/rsvp.css?url";
 import { RsvpForm } from "~/components/rsvpForm";
-import { toInputErrors } from "~/models/toInputErrors";
-import { formSchema } from "~/models/formSchema";
+import { toInputErrors } from "../../src/models/toInputErrors";
+import { formSchema } from "../../src/models/formSchema";
 import { redirect } from "@remix-run/router";
 import { ZodError } from "zod";
-import { repository } from "~/repository/repository";
+import { repository } from "../../src/repository/repository";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 

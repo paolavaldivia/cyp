@@ -1,4 +1,4 @@
-import { getHexColor } from "~/utils/colorUtils.client";
+import { getHexColor } from "../../src/utils/colorUtils";
 
 const paletteColors = [
   "--color-primary",

@@ -3,10 +3,10 @@ import { ActionFunctionArgs, json, LinksFunction } from "@remix-run/cloudflare";
 import { redirect } from "@remix-run/router";
 import { useActionData, useNavigation } from "@remix-run/react";
 import { ZodError } from "zod";
-import { toInputErrors } from "~/models/toInputErrors";
-import { formSchema } from "~/models/formSchema";
+import { toInputErrors } from "../../src/models/toInputErrors";
+import { formSchema } from "../../src/models/formSchema";
 import { RsvpForm } from "~/components/rsvpForm";
-import { repository } from "~/repository/repository";
+import { repository } from "../../src/repository/repository";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
