@@ -1,6 +1,7 @@
 body {
   background-image: url("../images/0068-1-1024x1024.jpg");
-  background-size: cover;
+  background-size: 500px;
+  background-repeat: repeat;
 }
 
 .container {
