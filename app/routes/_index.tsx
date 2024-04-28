@@ -1,8 +1,4 @@
-import type {
-  LinksFunction,
-  LoaderFunction,
-  MetaFunction,
-} from "@remix-run/cloudflare";
+import type { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
 import { ClientOnly } from "remix-utils/client-only";
 
 import styles from "~/styles/home.css?url";
@@ -10,22 +6,6 @@ import divider from "~/images/divider.svg";
 import { MainPhoto } from "~/components/mainPhoto";
 import { Link } from "@remix-run/react";
 import { TitleClient } from "~/components/title.client";
-
-const n = 8;
-const imagePaths = Array.from(
-  { length: n },
-  (_, i) => `/images/photos/cyp_${i}.jpg`,
-);
-
-export type IndexData = {
-  selectedImage: string;
-};
-
-export const loader: LoaderFunction = (): IndexData => {
-  const randomIndex = Math.floor(Math.random() * imagePaths.length);
-  const selectedImage = imagePaths[randomIndex];
-  return { selectedImage };
-};
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
