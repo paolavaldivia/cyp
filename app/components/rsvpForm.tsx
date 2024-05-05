@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Form } from "@remix-run/react";
 import { clsx } from "clsx";
 import { Guest } from "../../src/domain/guest";
-import { Dish } from "../../src/models/formSchema";
 
 interface RSVPFormProps {
   isSubmitting: boolean;
@@ -10,14 +9,8 @@ interface RSVPFormProps {
   guest?: Guest;
 }
 
-const dishOptionsSelect: { value: Dish; label: string }[] = [
-  { value: "pescado", label: "Salmón" },
-  { value: "lomo", label: "Lomo saltado" },
-];
-
 export const RsvpForm = ({ isSubmitting, errors, guest }: RSVPFormProps) => {
   const [plusOneChecked, setPlusOneChecked] = useState(guest?.plusOne || false);
-  const [attend, setAttend] = useState(guest?.attend || false);
 
   return (
     <Form
@@ -102,9 +95,6 @@ export const RsvpForm = ({ isSubmitting, errors, guest }: RSVPFormProps) => {
             name="attend"
             disabled={isSubmitting}
             defaultValue={!guest ? "" : guest?.attend ? "yes" : "no"}
-            onChange={(e) => {
-              setAttend(e.target.value === "yes");
-            }}
           >
             <option value="">Selecciona...</option>
             <option value="yes">Sí</option>
@@ -119,35 +109,6 @@ export const RsvpForm = ({ isSubmitting, errors, guest }: RSVPFormProps) => {
             {errors.attend + " "}
           </div>
         </label>
-      </div>
-      <div>
-        <label>
-          Qué plato prefieres?
-          <select
-            className={clsx(
-              "rsvp-input required",
-              attend && errors.dish && "error",
-            )}
-            name="dish"
-            disabled={isSubmitting || !attend}
-            defaultValue={guest?.dish || ""}
-          >
-            <option value="">Selecciona...</option>
-            {dishOptionsSelect.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </label>
-        <div
-          className={clsx(
-            "rsvp-input-error-message",
-            !!errors.dish && attend && "show",
-          )}
-        >
-          {errors.dish + " "}
-        </div>
       </div>
       <div>
         <label>
@@ -190,35 +151,6 @@ export const RsvpForm = ({ isSubmitting, errors, guest }: RSVPFormProps) => {
           defaultValue={guest?.plusOneLastName || ""}
         />
       </label>
-      <div>
-        <label>
-          Qué plato prefiere tu acompañante?
-          <select
-            className={clsx(
-              "rsvp-input",
-              plusOneChecked && errors.plusOneDish && "error",
-            )}
-            name="plusOneDish"
-            disabled={isSubmitting || !plusOneChecked}
-            defaultValue={guest?.plusOneDish || ""}
-          >
-            <option value="">Selecciona...</option>
-            {dishOptionsSelect.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </label>
-        <div
-          className={clsx(
-            "rsvp-input-error-message",
-            !!errors.plusOneDish && plusOneChecked && "show",
-          )}
-        >
-          {errors.plusOneDish + " "}
-        </div>
-      </div>
       <label>
         Llevarás niños? Cuántos?
         <select

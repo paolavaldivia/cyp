@@ -5,7 +5,6 @@ const errorMessages: Record<string, string> = {
   invalid_email: "Email inválido",
   invalid_string: "Campo inválido",
   invalid_enum_value: "Selecciona una opción válida",
-  nullish: "Campo requerido",
 };
 
 const getErrorMessage = (issue: ZodError["issues"][0]) => {
