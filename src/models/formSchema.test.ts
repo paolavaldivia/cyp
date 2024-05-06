@@ -14,7 +14,6 @@ describe("formSchema", () => {
       kids: 2,
       comments: "No allergies",
     };
-
     expect(() => formSchema.parse(validPayload)).not.toThrow();
   });
 

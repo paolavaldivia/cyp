@@ -8,11 +8,9 @@ export const GuestFromPrisma = (data: PrismaGuest): Guest => {
     email: data.email || undefined,
     phone: data.phone,
     attend: data.attend,
-    dish: data.dish || undefined,
     plusOne: data.plusOne,
     plusOneName: data.plusOneName || undefined,
     plusOneLastName: data.plusOneLastName || undefined,
-    plusOneDish: data.plusOneDish || undefined,
     kids: data.kids,
     comments: data.comments || undefined,
   };

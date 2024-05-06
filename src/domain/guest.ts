@@ -4,11 +4,9 @@ export interface Guest {
   email?: string;
   phone: string;
   attend: boolean;
-  dish?: string;
   plusOne: boolean;
   plusOneName?: string;
   plusOneLastName?: string;
-  plusOneDish?: string;
   kids: number;
   comments?: string;
 }

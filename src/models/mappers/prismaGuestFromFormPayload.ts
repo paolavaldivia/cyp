@@ -12,11 +12,9 @@ export const PrismaGuestFromFormPayload = (
     email: data.email || null,
     phone: data.phone,
     attend: data.attend === "yes",
-    dish: data.dish || null,
     plusOne: !!data.plusOne,
     plusOneName: data.plusOneName || null,
     plusOneLastName: data.plusOneLastName || null,
-    plusOneDish: data.plusOneDish || null,
     kids: data.kids || 0,
     comments: data.comments || null,
   };
