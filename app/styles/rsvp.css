@@ -60,6 +60,13 @@
 
     label {
         font-family: var(--font-menu, sans-serif);
+        p:has(+ .required) {
+            &::after {
+                content: "*";
+                color: var(--color-secondary-variant-1);
+                margin-left: var(--size-1);
+            }
+        }
     }
 
     input.error {

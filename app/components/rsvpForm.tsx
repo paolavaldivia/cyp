@@ -19,7 +19,7 @@ export const RsvpForm = ({ isSubmitting, errors, guest }: RSVPFormProps) => {
     >
       <div>
         <label>
-          Nombre:
+          <p> Nombre:</p>
           <input
             type="text"
             name="first"
@@ -36,7 +36,7 @@ export const RsvpForm = ({ isSubmitting, errors, guest }: RSVPFormProps) => {
       </div>
       <div>
         <label>
-          Apellido:
+          <p> Apellido:</p>
           <input
             type="text"
             name="last"
@@ -53,7 +53,7 @@ export const RsvpForm = ({ isSubmitting, errors, guest }: RSVPFormProps) => {
       </div>
       <div>
         <label>
-          Email:
+          <p> Email:</p>
           <input
             type="email"
             name="email"
@@ -69,7 +69,7 @@ export const RsvpForm = ({ isSubmitting, errors, guest }: RSVPFormProps) => {
       </div>
       <div>
         <label>
-          Teléfono (WhatsApp de preferencia):
+          <p> Teléfono (WhatsApp de preferencia):</p>
           <input
             type="text"
             name="phone"
@@ -89,7 +89,7 @@ export const RsvpForm = ({ isSubmitting, errors, guest }: RSVPFormProps) => {
       </div>
       <div>
         <label>
-          Vas a asistir?
+          <p> Vas a asistir?</p>
           <select
             className={clsx("rsvp-input required", errors.attend && "error")}
             name="attend"
@@ -132,7 +132,7 @@ export const RsvpForm = ({ isSubmitting, errors, guest }: RSVPFormProps) => {
         </label>
       </div>
       <label>
-        Nombre de tu acompañante:
+        <p> Nombre de tu acompañante:</p>
         <input
           className={clsx("rsvp-input", errors.plusOneName && "error")}
           type="text"
@@ -142,7 +142,7 @@ export const RsvpForm = ({ isSubmitting, errors, guest }: RSVPFormProps) => {
         />
       </label>
       <label>
-        Apellido de tu acompañante:
+        <p> Apellido de tu acompañante:</p>
         <input
           className={clsx("rsvp-input", errors.plusOneLastName && "error")}
           type="text"
@@ -152,7 +152,7 @@ export const RsvpForm = ({ isSubmitting, errors, guest }: RSVPFormProps) => {
         />
       </label>
       <label>
-        Llevarás niños? Cuántos?
+        <p> Llevarás niños? Cuántos?</p>
         <select
           className={clsx("rsvp-input required", errors.kids && "error")}
           name="kids"
@@ -166,7 +166,7 @@ export const RsvpForm = ({ isSubmitting, errors, guest }: RSVPFormProps) => {
         </select>
       </label>
       <label>
-        Comentarios adicionales:
+        <p> Comentarios adicionales:</p>
         <textarea
           className={clsx("rsvp-input-textarea")}
           name="comments"
