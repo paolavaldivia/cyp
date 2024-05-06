@@ -18,6 +18,7 @@
     align-items: center;
     justify-content: center;
     max-width: 600px;
+    width: 80%;
     padding: var(--size-9) var(--size-4);
     gap: var(--size-4);
     background-color: color-mix(in srgb, var(--color-3-10) 60%, transparent 40%);
@@ -49,7 +50,6 @@
     font-family: var(--font-body, sans-serif);
     font-size: var(--font-size-xs, 16px);
     text-align: center;
-    width: 80%;
 }
 
 .rsvp-form {

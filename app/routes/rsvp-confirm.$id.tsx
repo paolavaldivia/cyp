@@ -1,11 +1,19 @@
 import { json, LinksFunction, LoaderFunctionArgs } from "@remix-run/cloudflare";
 import { Link, useLoaderData, useParams } from "@remix-run/react";
 import { invariant } from "@remix-run/router/history";
+import { ClientOnly } from "remix-utils/client-only";
 
 import styles from "~/styles/rsvp.css?url";
+import rsvpPaletteStyles from "~/styles/rsvp-palette.css?url";
 import { repository } from "../../src/repository/repository";
+import { ColorPaletteClient } from "~/components/colorPalette.client";
+import { paletteColors } from "../../src/utils/paletteColors";
+import divider from "~/images/divider.svg";
 
-export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: styles },
+  { rel: "stylesheet", href: rsvpPaletteStyles },
+];
 
 export const loader = async ({ params, context }: LoaderFunctionArgs) => {
   invariant(params.id, "Missing guest id param");
@@ -22,16 +30,30 @@ export default function RsvpConfirm() {
 
   return (
     <div className="rsvp-container">
-      <div className="rsvp-content rsvp-confirm-message">
-        <p>¡Hola, {guest.name.trim()}!</p>
-        {guest.attend ? (
-          <p>Gracias por confirmar tu asistencia.</p>
-        ) : (
-          <p>
-            ¡Qué lástima que no puedas asistir! Si cambias de opinión avísanos
-            para que podamos hacer los ajustes necesarios.
-          </p>
+      <div className="rsvp-content">
+        <div className="rsvp-confirm-message">
+          <p>¡Hola, {guest.name.trim()}!</p>
+          {guest.attend ? (
+            <>
+              <p>Gracias por confirmar tu asistencia.</p>
+            </>
+          ) : (
+            <p>
+              ¡Qué lástima que no puedas asistir! Si cambias de opinión avísanos
+              para que podamos hacer los ajustes necesarios.
+            </p>
+          )}
+        </div>
+        <img src={divider} alt="" height={15} />
+        {guest.attend && (
+          <div>
+            Para referencia, estos son los colores de la paleta de la boda:
+            <ClientOnly fallback={<div />}>
+              {() => <ColorPaletteClient paletteColors={paletteColors} />}
+            </ClientOnly>
+          </div>
         )}
+        <img src={divider} alt="" height={15} />
         <Link className="button small" to={`/rsvp-edit/${id}`}>
           Editar RSVP
         </Link>
