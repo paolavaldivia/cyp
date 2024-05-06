@@ -46,11 +46,25 @@ export default function RsvpConfirm() {
         </div>
         <img src={divider} alt="" height={15} />
         {guest.attend && (
-          <div>
-            Para referencia, estos son los colores de la paleta de la boda:
-            <ClientOnly fallback={<div />}>
-              {() => <ColorPaletteClient paletteColors={paletteColors} />}
-            </ClientOnly>
+          <div className="rsvp-confirm-message">
+            <div>
+              Recuerda que la boda se llevará a cabo el <b>24 de Agosto</b> en
+              Arequipa. La dirección exacta será confirmada más adelante.
+            </div>
+            <div>
+              El código de vestimenta es formal (vestido, ternos, etc.). Si
+              tienes alguna pregunta, no dudes en contactarnos.
+            </div>
+            <div>
+              La recepción comenzará a las 2:00 p.m. y la ceremonia a las 3:00
+              p.m. Luego de la ceremonia, habrá una recepción con cena y baile.
+            </div>
+            <div>
+              Para referencia, estos son los colores de la paleta de la boda:
+              <ClientOnly fallback={<div />}>
+                {() => <ColorPaletteClient paletteColors={paletteColors} />}
+              </ClientOnly>
+            </div>
           </div>
         )}
         <img src={divider} alt="" height={15} />

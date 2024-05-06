@@ -50,6 +50,10 @@
     font-family: var(--font-body, sans-serif);
     font-size: var(--font-size-xs, 16px);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: var(--size-2);
 }
 
 .rsvp-form {
