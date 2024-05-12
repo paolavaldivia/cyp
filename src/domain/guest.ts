@@ -10,3 +10,7 @@ export interface Guest {
   kids: number;
   comments?: string;
 }
+
+export interface GuestWithId extends Guest {
+  id: string;
+}

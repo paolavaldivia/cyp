@@ -12,4 +12,6 @@ export interface IGuestRepository {
   ): Promise<{ id: string }>;
 
   getGuest(id: string, context: AppLoadContext): Promise<Guest | null>;
+
+  getGuests(context: AppLoadContext): Promise<Guest[]>;
 }

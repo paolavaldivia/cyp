@@ -57,7 +57,7 @@ export default function RsvpConfirm() {
             </div>
             <div>
               La recepción comenzará a las 2:00 p.m. y la ceremonia a las 3:00
-              p.m. Luego de la ceremonia, habrá una recepción con cena y baile.
+              p.m.
             </div>
             <div>
               Para referencia, estos son los colores de la paleta de la boda:

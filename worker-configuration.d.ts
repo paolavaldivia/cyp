@@ -3,4 +3,5 @@
 
 interface Env {
   DB: D1Database;
+  BODORRIO_SECRET: string;
 }

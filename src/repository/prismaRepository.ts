@@ -1,9 +1,12 @@
 import { AppLoadContext } from "@remix-run/cloudflare";
-import { Guest } from "../domain/guest";
+import { Guest, GuestWithId } from "../domain/guest";
 import { getPrismaClient } from "../db/client";
 import { FormPayload } from "../models/formSchema";
 import { IGuestRepository } from "./IGuestRepository";
-import { GuestFromPrisma } from "../models/mappers/guestFromPrisma";
+import {
+  GuestFromPrisma,
+  GuestWithIdFromPrisma,
+} from "../models/mappers/guestFromPrisma";
 import { PrismaGuestFromFormPayload } from "../models/mappers/prismaGuestFromFormPayload";
 
 export class PrismaRepository implements IGuestRepository {
@@ -50,5 +53,11 @@ export class PrismaRepository implements IGuestRepository {
       return null;
     }
     return GuestFromPrisma(record);
+  }
+
+  async getGuests(context: AppLoadContext): Promise<GuestWithId[]> {
+    const prisma = getPrismaClient(context);
+    const records = await prisma.guest.findMany();
+    return records.map(GuestWithIdFromPrisma);
   }
 }
