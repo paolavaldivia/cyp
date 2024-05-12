@@ -5,7 +5,7 @@ import { authenticator } from "~/services/auth.server";
 
 export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   await authenticator.isAuthenticated(request, {
-    failureRedirect: "/login",
+    failureRedirect: "/login?redirectTo=/guests",
   });
   const guests = await repository.getGuests(context);
   return json({ guests });

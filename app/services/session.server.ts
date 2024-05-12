@@ -1,4 +1,5 @@
 import { createCookieSessionStorage } from "@remix-run/cloudflare";
+import { isProduction } from "~/services/isProduction.server";
 
 export const sessionStorage = createCookieSessionStorage({
   cookie: {
@@ -7,9 +8,8 @@ export const sessionStorage = createCookieSessionStorage({
     path: "/",
     httpOnly: true,
     secrets: ["3l_B0d0rr10_s3cr3t0"],
-    secure: process.env.NODE_ENV === "production",
+    secure: isProduction(),
   },
 });
 
-// you can also export the methods individually for your own usage
 export const { getSession, commitSession, destroySession } = sessionStorage;
