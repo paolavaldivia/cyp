@@ -3,7 +3,7 @@ import {
   type LinksFunction,
   LoaderFunctionArgs,
 } from "@remix-run/cloudflare";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { repository } from "../../src/repository/repository";
 import { authenticator } from "~/services/auth.server";
 
@@ -44,7 +44,9 @@ export default function Guest() {
         <tbody>
           {guests.map((guest) => (
             <tr key={guest.id}>
-              <td>{guest.id}</td>
+              <td>
+                <Link to={`/rsvp-edit/${guest.id}`}>{guest.id}</Link>
+              </td>
               <td>{guest.name}</td>
               <td>{guest.lastName}</td>
               <td>{guest.email}</td>
