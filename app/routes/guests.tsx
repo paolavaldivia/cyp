@@ -3,7 +3,7 @@ import {
   type LinksFunction,
   LoaderFunctionArgs,
 } from "@remix-run/cloudflare";
-import { Link, useLoaderData } from "@remix-run/react";
+import { Form, Link, useLoaderData } from "@remix-run/react";
 import { repository } from "../../src/repository/repository";
 import { authenticator } from "~/services/auth.server";
 
@@ -19,16 +19,27 @@ export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   return json({ guests });
 };
 
+export const action = async ({ request, context }: LoaderFunctionArgs) => {
+  await authenticator.isAuthenticated(request, {
+    failureRedirect: "/login?redirectTo=/guests",
+  });
+  const formData = await request.formData();
+  const { _action, ...values } = Object.fromEntries(formData);
+  if (_action === "delete") {
+    await repository.deleteGuest(values.id as string, context);
+  }
+  return null;
+};
+
 export default function Guest() {
   const { guests } = useLoaderData<typeof loader>();
 
   return (
     <div>
-      <h1>Guest</h1>
+      <h1>Guests</h1>
       <table>
         <thead>
           <tr>
-            <th>ID</th>
             <th>Name</th>
             <th>Last Name</th>
             <th>Email</th>
@@ -39,14 +50,12 @@ export default function Guest() {
             <th>Plus One Last Name</th>
             <th>Kids</th>
             <th>Comments</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {guests.map((guest) => (
             <tr key={guest.id}>
-              <td>
-                <Link to={`/rsvp-edit/${guest.id}`}>{guest.id}</Link>
-              </td>
               <td>{guest.name}</td>
               <td>{guest.lastName}</td>
               <td>{guest.email}</td>
@@ -57,6 +66,28 @@ export default function Guest() {
               <td>{guest.plusOneLastName}</td>
               <td>{guest.kids}</td>
               <td>{guest.comments}</td>
+              <td>
+                <div className="guests-td-content-actions">
+                  <Link
+                    className="button small tertiary"
+                    to={`/rsvp-edit/${guest.id}`}
+                  >
+                    Edit
+                  </Link>
+                  <Form method={"post"}>
+                    <input type="hidden" name="id" value={guest.id} />
+                    <button
+                      className="small secondary"
+                      type="submit"
+                      aria-label="delete"
+                      name="_action"
+                      value="delete"
+                    >
+                      X
+                    </button>
+                  </Form>
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>

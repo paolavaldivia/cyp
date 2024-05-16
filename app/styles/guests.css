@@ -24,3 +24,9 @@ th {
 tr:nth-child(even) {
   background-color: var(--color-3-9);
 }
+
+.guests-td-content-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--size-05);
+}

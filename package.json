@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@prisma/adapter-d1": "^5.12.1",
-    "@prisma/client": "^5.12.1",
+    "@prisma/client": "^5.14.0",
     "@remix-run/cloudflare": "^2.8.1",
     "@remix-run/cloudflare-pages": "^2.8.1",
     "@remix-run/react": "^2.8.1",
@@ -53,7 +53,7 @@
     "jsdom": "^24.0.0",
     "node-fetch": "^3.3.2",
     "prettier": "3.2.5",
-    "prisma": "^5.12.1",
+    "prisma": "^5.14.0",
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1",

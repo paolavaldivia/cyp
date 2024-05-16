@@ -57,7 +57,23 @@ export class PrismaRepository implements IGuestRepository {
 
   async getGuests(context: AppLoadContext): Promise<GuestWithId[]> {
     const prisma = getPrismaClient(context);
-    const records = await prisma.guest.findMany();
+    const records = await prisma.guest.findMany({
+      where: {
+        deletedAt: null,
+      },
+    });
     return records.map(GuestWithIdFromPrisma);
+  }
+
+  async deleteGuest(id: string, context: AppLoadContext): Promise<void> {
+    const prisma = getPrismaClient(context);
+    await prisma.guest.update({
+      where: {
+        id,
+      },
+      data: {
+        deletedAt: new Date(),
+      },
+    });
   }
 }

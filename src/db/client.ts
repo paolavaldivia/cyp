@@ -4,7 +4,8 @@ import { AppLoadContext } from "@remix-run/cloudflare";
 
 export const connection = (db: D1Database) => {
   const adapter = new PrismaD1(db);
-  return new PrismaClient({ adapter });
+  const prisma = new PrismaClient({ adapter });
+  return prisma;
 };
 
 export const getPrismaClient = (context: AppLoadContext) =>
