@@ -80,7 +80,14 @@ export default function Guest() {
                   >
                     Edit
                   </Link>
-                  <Form method={"post"}>
+                  <Form
+                    method={"post"}
+                    onSubmit={(e) => {
+                      if (!window.confirm("Seguro segurito?")) {
+                        e.preventDefault();
+                      }
+                    }}
+                  >
                     <input type="hidden" name="id" value={guest.id} />
                     <button
                       className="small secondary"
