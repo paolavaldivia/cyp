@@ -34,6 +34,10 @@ export const action = async ({ request, context }: LoaderFunctionArgs) => {
 export default function Guest() {
   const { guests } = useLoaderData<typeof loader>();
 
+  const totalGuests = guests.reduce((acc, guest) => {
+    return acc + 1 + (guest.plusOne ? 1 : 0);
+  }, 0);
+
   return (
     <div>
       <h1>Guests</h1>
@@ -50,6 +54,7 @@ export default function Guest() {
             <th>Plus One Last Name</th>
             <th>Kids</th>
             <th>Comments</th>
+            <th>Total</th>
             <th></th>
           </tr>
         </thead>
@@ -66,6 +71,7 @@ export default function Guest() {
               <td>{guest.plusOneLastName}</td>
               <td>{guest.kids}</td>
               <td>{guest.comments}</td>
+              <td>{1 + (guest.plusOne ? 1 : 0)}</td>
               <td>
                 <div className="guests-td-content-actions">
                   <Link
@@ -91,6 +97,13 @@ export default function Guest() {
             </tr>
           ))}
         </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan={10}>Total</td>
+            <td>{totalGuests}</td>
+            <td></td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   );
