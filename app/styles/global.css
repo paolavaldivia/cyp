@@ -159,3 +159,7 @@ button:hover,
   letter-spacing: -32px;
   font-weight: bold;
 }
+
+a {
+  color: var(--color-secondary-variant-1);
+}

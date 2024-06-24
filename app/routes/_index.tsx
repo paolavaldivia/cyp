@@ -58,7 +58,9 @@ export default function Index() {
           <div className="home-main-extra">
             <div>
               <div className="home-main-extra-title">Dirección:</div>
-              Sector Bajo Cural lote 425 Lateral 7 - 3 Uchumayo.
+              <a href="https://maps.app.goo.gl/nCiWZjMhtEhmhRHB6">
+                Sector Bajo Cural lote 425 Lateral 7 - 3 Uchumayo.
+              </a>
             </div>
             <div>
               <div className="home-main-extra-title">Paleta de la boda:</div>
