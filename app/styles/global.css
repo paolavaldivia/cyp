@@ -162,4 +162,5 @@ button:hover,
 
 a {
   color: var(--color-secondary-variant-1);
+  text-decoration: none;
 }

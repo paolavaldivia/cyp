@@ -50,11 +50,11 @@ export default function RsvpConfirm() {
             <div className="rsvp-confirm-message">
               <div>
                 Recuerda que la boda se llevará a cabo el <b>24 de Agosto</b> en
-                Arequipa. En el local de eventos "El Rosario" (
+                Arequipa. En el local de eventos "El Rosario".
                 <a href="https://maps.app.goo.gl/nCiWZjMhtEhmhRHB6">
-                  Sector Bajo Cural lote 425 Lateral 7 - 3 Uchumayo)
+                  {" "}
+                  🔗Google Maps
                 </a>
-                .
               </div>
               <div>
                 El código de vestimenta es formal (vestido, ternos, etc.). Si

@@ -147,7 +147,7 @@ h1 {
 
 .home-main-extra {
   font-family: var(--font-body, sans-serif);
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-xs);
   text-align: center;
   margin-left: auto;
   margin-right: auto;
